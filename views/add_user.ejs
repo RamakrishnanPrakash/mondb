@@ -1,0 +1,47 @@
+<%- include('partial/heater')%>
+
+
+<div class="container">
+    <div class="row">
+       
+        <div class="col-sm-5 mx-auto mt-3">
+            <div class="card shadow p-5">
+                <div class="container bg-dark p-1 mb-1">  
+                    <h3 class="text-light text-center" >
+                     <i class="fa-solid fa-user"> </i> Add_Details</h3> </div>
+            <form action="/add" method="post">
+            <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">Name</label>
+                <input type="text" class="form-control form-control-lg" 
+                id="formGroupExampleInput" placeholder="Enter name" name="name">
+              </div>
+              
+              <div class="mb-3">
+                <label for="formGroupExampleInput2" class="form-label"> Email</label>
+                <input type="email" class="form-control form-control-lg "
+                 id="formGroupExampleInput2" placeholder="Enter email" name="email">
+              </div>
+              <div class="mb-3">
+                <label for="formGroupExampleInput2" class="form-label">Phone</label>
+                <input type="text" class="form-control form-control-lg" 
+                id="formGroupExampleInput2" placeholder="Enter phone" name="phone">
+              </div>
+              <div class="mb-3">
+                <label for="formGroupExampleInput2" class="form-label">Password</label>
+                <input type="password" class="form-control form-control-lg" 
+                id="formGroupExampleInput2" placeholder="Enter password" name="password">
+              </div>
+              <div class="mb-1 mt-2">
+                <button class="btn btn-dark form-control fs-5" type="submit">Add user</button>
+              </div>
+
+            </form>
+
+
+
+
+        </div>
+    </div><!--card-->
+    </div>
+</div>
+<%- include('partial/footer') %>

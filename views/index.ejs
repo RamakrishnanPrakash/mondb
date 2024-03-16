@@ -1,0 +1,98 @@
+<%- include('partial/heater')%>
+
+
+
+     <% if (user.length>0) { %>
+          
+        
+        <% if (alert) { %>
+            <div class="alert alert-success text-center" id="message">
+
+                <span style="cursor: pointer;" onclick="dispose()"><i class="fa-solid fa-xmark"></i> &nbsp;</span>
+                <strong> Success!</strong> Record was update successfully.
+                
+              </div>
+            <script>
+                function dispose(){
+                 document.getElementById('message').style.display="none";
+                }
+            </script>
+        <% } %>
+        <div class="container mt-5">
+            <div class="table-responsive my-2">
+                <table class="table table-stripped text-center" id="myTable">
+
+                    <thead class="table-dark">
+                        <tr>
+                            <td>ID</td>
+                            <td>NAME</td>
+                            <td>EMAIL</td>
+                            <td>Phone</td>
+                            <td>Password</td>
+                            <td>Action</td>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <% user.forEach((value,index)=>{ %>
+
+                        <tr>
+                            <td><%= index+1%></td>
+                            <td><%= value.name%></td>
+                            <td><%= value.email%></td>
+                            <td><%= value.phone%></td>
+                            <td><%= value.password%></td>
+                            <td>
+                                <button class="btn">
+                                <i class="fa-solid fa-pen-to-square" style="color: #63E6BE;"></i> <a href="updateData?id=<%= value._id%>"  style="text-decoration: none; color: black;">Edit</a> </button>
+                
+                                <button class="btn" type="submit"><i class="fa-solid fa-pen-to-square" style="color: red;"></i> <a href="deleteData?id=<%=value._id %>" style="text-decoration: none; color: black;">Delete</a></button>
+                          
+                            
+                                </td>
+                        </tr>
+                      <% }) %>
+                    </tbody>
+
+                </table>
+            </div>
+            <div class="count bg-black p-2 text-center" style="width: 300px;">
+                  <h3 class="text-center my-2" style="color: aqua; text-shadow: 1px 1px 1px aqua;" >
+                    <i class="fa-solid fa-code"></i>
+                  </h3>
+                  <h5 class="my-2 text-light" id="num">05</h5>
+                  <p class="text-light">Total Record</p>
+            </div>
+        </div>
+        <script>
+            function editNum(){
+                var p=document.getElementById('num');
+
+                var row=document.getElementById('myTable').rows.length-1;
+                if(row<10)
+                   row="0"+row;
+                p.innerHTML=row;
+
+            }
+            editNum();
+            
+        </script>
+        <% }  else { %>
+          
+            <div class="container bg-secondary text-light p-5 my-5 shadow">
+                
+                <div class="text-center">
+                    <h3> 😕  No Data yet  😕</h3>
+                    </div>
+                </div>
+          <% } %>
+          <div class="container mt-5">
+            <h3 class="text-secondary text-end" >Developed by
+            <span style="color: #06f1ba;">Ramakrishnan</span></h3>
+        </div>
+
+
+<script>
+    
+</script>
+<%- include('partial/footer') %>
